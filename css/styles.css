@@ -1,0 +1,38 @@
+.container {
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ height: 100vh;
+}
+.box-container {
+ border: 1px solid rgb(0, 0, 0);
+ height: 960px;
+ display: flex;
+ flex-wrap: wrap;
+ align-items: center;
+ align-content: center;
+ justify-content: center;
+ width: 960px;
+ text-align: center;
+}
+.box {
+ display: flex;
+ flex-wrap: wrap;
+ align-content: center;
+ align-items: center;
+ justify-content: center;
+}
+.min-box {
+ background-color: rgb(0, 1, 2);
+ display: flex;
+ align-content: center;
+}
+.min-box:hover {
+ background-color: blueviolet;
+}
+.box:hover {
+ background-color: crimson;
+}
+.red {
+ background-color: crimson;
+}
