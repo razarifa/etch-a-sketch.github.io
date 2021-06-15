@@ -2,7 +2,6 @@ let container = document.querySelector(".box-container");
 let createBoxButton = document.querySelector(".createBox");
 let remove = document.querySelector(".remove");
 
-remove.addEventListener("click", removeBoxes);
 let num = document.querySelector("#num");
 let color = "#000";
 let s = document.querySelector("span");
