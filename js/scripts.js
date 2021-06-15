@@ -41,7 +41,7 @@ function Reset() {
 }
 let reset = document.querySelector("#reset").addEventListener("click", Reset);
 let colorChoice = document.querySelector("#colorChoice");
-colorChoice.addEventListener("change", (e) => {
+colorChoice.addEventListener("touchmove", (e) => {
  color = e.target.value;
 });
 
