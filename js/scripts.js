@@ -1,27 +1,37 @@
 let container = document.querySelector(".box-container");
-let color = "#000";
-let n = Number(prompt("nece?"));
+let createBoxButton = document.querySelector(".createBox");
+let remove = document.querySelector(".remove");
 
-for (let i = 0; i < n; i++) {
- for (let j = 0; j < n; j++) {
-  let box = document.createElement("div");
-  box.style.height = 560 / n - 2 + "px";
-  box.style.width = 560 / n - 2 + "px";
-  box.style["border"] = `1px solid white`;
-  box.classList.add("box");
-  container.appendChild(box);
+remove.addEventListener("click", removeBoxes);
+let num = document.querySelector("#num");
+let color = "#000";
+let s = document.querySelector("span");
+
+let n;
+
+function createBox() {
+ n = num.value;
+ s.innerText = n;
+
+ removeBoxes();
+ for (let i = 0; i < n; i++) {
+  for (let j = 0; j < n; j++) {
+   let box = document.createElement("div");
+   box.classList.add("box");
+   box.style.height = 560 / n - 2 + "px";
+   box.style.width = 560 / n - 2 + "px";
+   box.style["border"] = `1px solid white`;
+   container.appendChild(box);
+  }
+ }
+}
+function removeBoxes() {
+ if (container.children.length !== 0) {
+  container.innerHTML = "";
  }
 }
 
-[...container.querySelectorAll(".box")].forEach((el) => {
- el.addEventListener("mousemove", (e) => {
-  //  console.log(e);
-  //  el.classList.add("red");
-  el.style["background-color"] = color;
-  el.style["border-color"] = color;
-  el.firstChild.style["border-bottom-left-radius"] = "5px";
- });
-});
+num.addEventListener("change", createBox);
 
 function Reset() {
  [...container.querySelectorAll(".box")].forEach((el) => {
@@ -48,3 +58,21 @@ function hexToRgbA(hex) {
  }
  throw new Error("Bad Hex");
 }
+// [...document.querySelector(".box-container").querySelectorAll(".box")].forEach(
+//  (el) => {
+//   console.log("hellds");
+//   el.addEventListener("click", () => {
+//    el.style["background-color"] = color;
+//    el.style["border-color"] = color;
+//    console.log("heldlo");
+//   });
+//  }
+// );
+container.addEventListener("mouseover", () => {
+ [...container.querySelectorAll(".box")].forEach((el) => {
+  el.addEventListener("mouseover", () => {
+   el.style["background-color"] = color;
+   el.style["border-color"] = color;
+  });
+ });
+});
