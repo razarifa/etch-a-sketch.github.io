@@ -11,9 +11,11 @@
   <div class="container">
    <div class="button-container">
     <button id="reset">reset</button>
-    <button id="draw">draw</button>
-    <button id="eraser">eraser mood</button>
-
+    <span>Erase Mood</span>
+    <label class="switch">
+     <input type="checkbox" id="check" checked="true" />
+     <span class="slider round"></span> </label
+    ><span>Draw Mood</span>
     <div class="px-container">
      <input
       type="range"
@@ -24,7 +26,7 @@
       step="2"
       value="0"
      />
-     <span>0</span>
+     <span id="indicator">0</span>
     </div>
     <input type="color" id="colorChoice" />
    </div>

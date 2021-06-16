@@ -1,16 +1,15 @@
-//variable declarations
 let container = document.querySelector(".box-container");
 let createBoxButton = document.querySelector(".createBox");
-let remove = document.querySelector(".remove");
 let reset = document.querySelector("#reset").addEventListener("click", Reset);
 let colorChoice = document.querySelector("#colorChoice");
 let pixel = document.querySelector("#pixel");
 let color = "#000";
-let indicator = document.querySelector("span");
+let indicator = document.querySelector("#indicator");
 let n;
-let eraser = document.querySelector("#eraser");
-let draw = document.querySelector("#draw");
-//function declarations
+let mood = document.querySelector("#check");
+let checked = true;
+let actionMood = true;
+
 function removeBoxes() {
  if (container.children.length !== 0) {
   container.innerHTML = "";
@@ -34,32 +33,65 @@ function createBox() {
 }
 function Reset() {
  [...container.querySelectorAll(".box")].forEach((el) => {
-  // el.classList.remove("red");
   el.style["background-color"] = "white";
   el.style["border-color"] = "white";
  });
 }
 
+function erase() {
+ this.style["background-color"] = "white";
+ this.style["border-color"] = "white";
+}
+function changeColor() {
+ this.style["background-color"] = color;
+ this.style["border-color"] = color;
+}
+mood.addEventListener("change", () => {
+ checked = mood.checked;
+ if (checked) {
+  [...container.querySelectorAll(".box")].forEach((el) => {
+   el.removeEventListener("mouseover", changeColor);
+  });
+ } else {
+  [...container.querySelectorAll(".box")].forEach((el) => {
+   el.removeEventListener("mouseover", changeColor);
+  });
+ }
+});
+function myFun() {
+ if (checked) {
+  if (actionMood) {
+   [...container.querySelectorAll(".box")].forEach((el) => {
+    el.addEventListener("mouseover", changeColor);
+   });
+  } else {
+   [...container.querySelectorAll(".box")].forEach((el) => {
+    el.removeEventListener("mouseover", changeColor);
+   });
+  }
+  [...container.querySelectorAll(".box")].forEach((el) => {
+   el.removeEventListener("mouseover", erase);
+  });
+ } else {
+  if (!actionMood) {
+   [...container.querySelectorAll(".box")].forEach((el) => {
+    el.addEventListener("mouseover", erase);
+   });
+  } else {
+   [...container.querySelectorAll(".box")].forEach((el) => {
+    el.removeEventListener("mouseover", erase);
+   });
+  }
+  [...container.querySelectorAll(".box")].forEach((el) => {
+   el.removeEventListener("mouseover", changeColor);
+  });
+ }
+ actionMood = !actionMood;
+}
 //events
 pixel.addEventListener("change", createBox);
 
 colorChoice.addEventListener("change", (e) => {
  color = e.target.value;
 });
-
-eraser.addEventListener("click", () => {
- [...container.querySelectorAll(".box")].forEach((el) => {
-  el.addEventListener("mouseover", () => {
-   el.style["background-color"] = "white";
-   el.style["border-color"] = "white";
-  });
- });
-});
-draw.addEventListener("click", () => {
- [...container.querySelectorAll(".box")].forEach((el) => {
-  el.addEventListener("mouseover", () => {
-   el.style["background-color"] = color;
-   el.style["border-color"] = color;
-  });
- });
-});
+container.addEventListener("click", myFun);
