@@ -43,7 +43,7 @@ body {
  align-items: center;
 }
 .button-container {
- padding: 20px;
+ /* padding: 20px; */
  display: flex;
  align-items: center;
  text-align: center;
@@ -119,6 +119,11 @@ input:checked + .slider:before {
 .slider.round:before {
  border-radius: 50%;
 }
-#pixel {
- width: 50%;
+.px-container {
+ max-width: 50%;
+ padding: 20px;
+ display: flex;
+ align-content: center;
+ justify-content: center;
+ align-items: center;
 }
