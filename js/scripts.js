@@ -8,6 +8,8 @@ let color = "#000";
 let indicator = document.querySelector("#indicator");
 let n = 4;
 let mood = document.querySelector("#check");
+let switchBtn = document.querySelector("#switch-btn");
+
 let checked = true;
 let actionMood = true;
 
@@ -19,8 +21,8 @@ for (let i = 0; i < n; i++) {
  for (let j = 0; j < n; j++) {
   let box = document.createElement("div");
   box.classList.add("box");
-  box.style.height = 520 / n - 2 + "px";
-  box.style.width = 520 / n - 2 + "px";
+  box.style.height = 420 / n - 2 + "px";
+  box.style.width = 420 / n - 2 + "px";
   box.style["border"] = `1px solid transparent`;
   container.appendChild(box);
  }
@@ -41,8 +43,8 @@ function createBox() {
   for (let j = 0; j < n; j++) {
    let box = document.createElement("div");
    box.classList.add("box");
-   box.style.height = 520 / n - 2 + "px";
-   box.style.width = 520 / n - 2 + "px";
+   box.style.height = 420 / n - 2 + "px";
+   box.style.width = 420 / n - 2 + "px";
    box.style["border"] = `1px solid transparent`;
    container.appendChild(box);
   }

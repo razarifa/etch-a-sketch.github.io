@@ -14,20 +14,18 @@ body {
  display: flex;
  justify-content: center;
  align-items: center;
- height: 80%;
+ height: 100%;
  flex-direction: column;
- width: 100%;
- padding: 10px;
- margin-top: 1%;
+ width: 80%;
 }
 .box-container {
- max-height: 520px;
+ max-height: 420px;
  display: flex;
  flex-wrap: wrap;
  align-items: center;
  align-content: center;
  justify-content: center;
- max-width: 520px;
+ max-width: 420px;
  text-align: center;
  background-color: transparent;
  box-shadow: 8px -7px 19px 3px rgb(0 0 0 / 3%), 0 6.7px 5.3px rgb(0 0 0 / 5%),
@@ -42,13 +40,15 @@ body {
  align-items: center;
  justify-content: center;
  transition: 0.3s all;
+ align-items: center;
 }
 .button-container {
  padding: 20px;
  display: flex;
  align-items: center;
  text-align: center;
- /* flex-direction: column; */
+ max-width: 100%;
+ justify-content: space-around;
 }
 .button-container button,
 input[type="color"] {
@@ -70,6 +70,7 @@ input[type="color"] {
  min-height: 63%; */
  min-width: 50px;
  min-height: 30px;
+ margin: 1%;
 }
 
 /* Hide default HTML checkbox */
@@ -117,4 +118,7 @@ input:checked + .slider:before {
 
 .slider.round:before {
  border-radius: 50%;
+}
+#pixel {
+ width: 50%;
 }
