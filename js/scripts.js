@@ -72,6 +72,7 @@ function Reset() {
   el.style["background-color"] = "transparent";
   el.style["border-color"] = "transparent";
   el.setAttribute("data-count", 2);
+  container.style["background-color"] = "transparent";
  });
 }
 function erase() {
@@ -79,6 +80,7 @@ function erase() {
  this.style["border-color"] = "transparent";
 }
 function changeColor() {
+ container.style["background-color"] = "white";
  if (isRandomColor) {
   color = "#" + Math.floor(Math.random() * 16777215).toString(16);
   console.log(color);
