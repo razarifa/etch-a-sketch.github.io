@@ -13,10 +13,10 @@ let isRandomColor = false;
 let checked = true;
 let actionMood = true;
 let randomColor = document.querySelector("#random-color");
+let dataCount = 0;
 
 indicator.innerText = 4;
 pixel.value = 4;
-
 for (let i = 0; i < n; i++) {
  for (let j = 0; j < n; j++) {
   let box = document.createElement("div");
@@ -29,12 +29,27 @@ for (let i = 0; i < n; i++) {
  }
 }
 
+function hexToRgbA(hex) {
+ var c;
+ if (/^#([A-Fa-f0-9]{3}){1,2}$/.test(hex)) {
+  c = hex.substring(1).split("");
+  if (c.length == 3) {
+   c = [c[0], c[0], c[1], c[1], c[2], c[2]];
+  }
+  c = "0x" + c.join("");
+  return "rgba(" + [(c >> 16) & 255, (c >> 8) & 255, c & 255].join(",") + ",1)";
+ }
+ throw new Error("Bad Hex");
+}
+function toRgba(rgb) {
+ return rgb.replace(")", ", 0.2)").replace("rgb", "rgba");
+}
+
 function removeBoxes() {
  if (container.children.length !== 0) {
   container.innerHTML = "";
  }
 }
-
 function createBox() {
  actionMood = true;
  n = pixel.value;
@@ -59,13 +74,11 @@ function Reset() {
   el.setAttribute("data-count", 2);
  });
 }
-
 function erase() {
  this.style["background-color"] = "transparent";
  this.style["border-color"] = "transparent";
 }
-let dataCount = 0;
-function changeColor(e) {
+function changeColor() {
  if (isRandomColor) {
   color = "#" + Math.floor(Math.random() * 16777215).toString(16);
   console.log(color);
@@ -77,7 +90,6 @@ function changeColor(e) {
    color = hexToRgbA("#000");
   }
   dataCount = this.getAttribute("data-count");
-  //  let oldColor = e.target.style["background-color"];
   b = color.replace(
    color.substr(color.lastIndexOf(",") + 1, 4),
    `${dataCount <= 9 ? "0." + dataCount++ + ")" : "1)"}`
@@ -85,7 +97,6 @@ function changeColor(e) {
 
   this.style["background-color"] = b;
   this.style["border-color"] = b;
-  //  let newColor = e.target.style["background-color"];
   this.setAttribute("data-count", dataCount++);
  }
 }
@@ -120,6 +131,7 @@ function drawOrErase() {
  }
  actionMood = !actionMood;
 }
+
 //events
 mood.addEventListener("change", () => {
  checked = mood.checked;
@@ -137,19 +149,3 @@ reset.addEventListener("click", Reset);
 randomColor.addEventListener("click", () => {
  isRandomColor = true;
 });
-
-function hexToRgbA(hex) {
- var c;
- if (/^#([A-Fa-f0-9]{3}){1,2}$/.test(hex)) {
-  c = hex.substring(1).split("");
-  if (c.length == 3) {
-   c = [c[0], c[0], c[1], c[1], c[2], c[2]];
-  }
-  c = "0x" + c.join("");
-  return "rgba(" + [(c >> 16) & 255, (c >> 8) & 255, c & 255].join(",") + ",1)";
- }
- throw new Error("Bad Hex");
-}
-function toRgba(rgb) {
- return rgb.replace(")", ", 0.2)").replace("rgb", "rgba");
-}

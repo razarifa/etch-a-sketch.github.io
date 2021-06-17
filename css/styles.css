@@ -43,7 +43,6 @@ body {
  align-items: center;
 }
 .button-container {
- /* padding: 20px; */
  display: flex;
  align-items: center;
  text-align: center;
@@ -150,4 +149,10 @@ input:checked + .slider:before {
  padding: 10px;
  width: 50%;
  border: none;
+}
+a {
+ color: white;
+ position: fixed;
+ bottom: 1%;
+ right: 2%;
 }
