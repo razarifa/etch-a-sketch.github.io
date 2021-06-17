@@ -16,7 +16,7 @@ body {
  align-items: center;
  height: 100%;
  flex-direction: column;
- width: 80%;
+ min-width: 50%;
 }
 .box-container {
  max-height: 420px;
@@ -120,10 +120,14 @@ input:checked + .slider:before {
  border-radius: 50%;
 }
 .px-container {
- max-width: 50%;
- padding: 20px;
+ min-width: 90%;
+ /* padding: 20px; */
  display: flex;
  align-content: center;
  justify-content: center;
  align-items: center;
+ margin: 4%;
+}
+#pixel {
+ min-width: 50%;
 }
