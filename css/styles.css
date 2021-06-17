@@ -66,8 +66,10 @@ input[type="color"] {
 .switch {
  position: relative;
  display: inline-block;
- min-width: 11.5%;
- min-height: 63%;
+ /* min-width: 11.5%;
+ min-height: 63%; */
+ min-width: 50px;
+ min-height: 30px;
 }
 
 /* Hide default HTML checkbox */
