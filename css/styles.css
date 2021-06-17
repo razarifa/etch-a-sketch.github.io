@@ -5,14 +5,20 @@ html {
  -o-background-size: cover;
  background-size: cover;
 }
-
+body {
+ display: flex;
+ justify-content: center;
+ align-items: center;
+}
 .container {
  display: flex;
  justify-content: center;
  align-items: center;
- height: 100vh;
+ height: 80%;
  flex-direction: column;
- width: 100vw;
+ width: 100%;
+ padding: 10px;
+ margin-top: 1%;
 }
 .box-container {
  max-height: 520px;
@@ -27,6 +33,7 @@ html {
  box-shadow: 8px -7px 19px 3px rgb(0 0 0 / 3%), 0 6.7px 5.3px rgb(0 0 0 / 5%),
   0 12.5px 10px rgb(0 0 0 / 6%), 0 22.3px 17.9px rgb(0 0 0 / 7%),
   0 41.8px 33.4px rgb(0 0 0 / 9%), 0 100px 80px rgb(0 0 0 / 12%);
+ overflow: hidden;
 }
 .box {
  display: flex;
@@ -41,6 +48,7 @@ html {
  display: flex;
  align-items: center;
  text-align: center;
+ /* flex-direction: column; */
 }
 .button-container button,
 input[type="color"] {
@@ -58,8 +66,8 @@ input[type="color"] {
 .switch {
  position: relative;
  display: inline-block;
- width: 60px;
- height: 34px;
+ min-width: 11.5%;
+ min-height: 63%;
 }
 
 /* Hide default HTML checkbox */
@@ -85,10 +93,10 @@ input[type="color"] {
 .slider:before {
  position: absolute;
  content: "";
- height: 26px;
+ height: 85%;
  width: 26px;
- left: 4px;
- bottom: 4px;
+ left: 1px;
+ top: 1px;
  background-color: white;
  -webkit-transition: 0.4s;
  transition: 0.4s;
