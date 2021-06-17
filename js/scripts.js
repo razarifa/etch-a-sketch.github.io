@@ -9,7 +9,7 @@ let indicator = document.querySelector("#indicator");
 let n = 4;
 let mood = document.querySelector("#check");
 let switchBtn = document.querySelector("#switch-btn");
-
+let isRandomColor = false;
 let checked = true;
 let actionMood = true;
 
@@ -62,6 +62,9 @@ function erase() {
  this.style["border-color"] = "transparent";
 }
 function changeColor() {
+ if (isRandomColor) {
+  color = Math.floor(Math.random() * 16777215).toString(16);
+ }
  this.style["background-color"] = color;
  this.style["border-color"] = color;
 }
@@ -105,6 +108,11 @@ pixel.addEventListener("change", createBox);
 
 colorChoice.addEventListener("change", (e) => {
  color = e.target.value;
+ isRandomColor = false;
 });
 container.addEventListener("click", drawOrErase);
 reset.addEventListener("click", Reset);
+let randomColor = document.querySelector("#random-color");
+randomColor.addEventListener("click", () => {
+ isRandomColor = true;
+});
