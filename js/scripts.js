@@ -15,7 +15,6 @@ let actionMood = true;
 
 indicator.innerText = 4;
 pixel.value = 4;
-console.log(container.style.height);
 
 for (let i = 0; i < n; i++) {
  for (let j = 0; j < n; j++) {
